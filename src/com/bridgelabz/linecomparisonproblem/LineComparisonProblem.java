@@ -1,8 +1,8 @@
 package com.bridgelabz.linecomparisonproblem;
 
-/*model a line based on a point consisting of (x, y) co-ordinates using the Cartesian system,
-So that calculate its length
-.- A Length as 2 Points (x1, y1) and (x2, y2) - Length of a Line = sqrt( (x2 - x1) ^ 2 + (y2- y1) ^ 2)*/
+/*check equality of two lines based on the end points, 
+* So that I know when two lines are the equal. 
+* - Using Java equals method to check equality of 2 Lengths is preferable.*/
 
 import java.util.Scanner;
 
@@ -14,17 +14,35 @@ public class LineComparisonProblem {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		//Get co-ordinates of two points
-		System.out.println("Enter the co-ordinates of point 1 (x1,y1): ");
-		double x1 = scanner.nextDouble();
-		double y1 = scanner.nextDouble();
-		System.out.println("Enter the co-cordinates of point 2 (x2,y2): " );
-		double x2 = scanner.nextDouble();
-		double y2 = scanner.nextDouble();
+		//Get co-ordinates of two points for line 1
+		System.out.println("Enter the co-ordinates of point 1 of (x1,y1) of line 1: ");
+		double x1 = scanner.nextInt();
+		double y1 = scanner.nextInt();
+		System.out.println("Enter the co-cordinates of point 2 (x2,y2) of line 1: " );
+		double x2 = scanner.nextInt();
+		double y2 = scanner.nextInt();
+		
+		//Get co-ordinates of two points for line 2
+		System.out.println("Enter the co-ordinates of point 1 (p1,q1) of line 2: ");
+		double p1 = scanner.nextInt();
+		double q1 = scanner.nextInt();
+		System.out.println("Enter the co-cordinates of point 2 (p2,p2) of line 2: " );
+		double p2 = scanner.nextInt();
+		double q2 = scanner.nextInt();
 		
 		//calculate length of the line
-		double length = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+		double lengthOne =  Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+		double lengthTwo =  Math.sqrt((p2-p1)*(p2-p1) + (q2-q1)*(q2-q1));
 		
-		System.out.println("The length of the line is: " + length);
+		//convert double into string
+		String stringOne = Double.toString(lengthOne);
+		String stringTwo = Double.toString(lengthTwo);
+		
+		//checking if two lines are equal or not
+		if(stringOne.equals(stringTwo)) {
+			System.out.println("Line 1 and line 2 are equal in length");
+		} else {
+			System.out.println("Line 1 and line 2 are not equal in length");
+		}
 	}
 }
