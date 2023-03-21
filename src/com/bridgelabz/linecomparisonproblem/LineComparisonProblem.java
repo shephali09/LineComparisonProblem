@@ -1,8 +1,8 @@
 package com.bridgelabz.linecomparisonproblem;
 
-/*check equality of two lines based on the end points, 
+/*check equality of two lines based on the end point, 
 * So that I know when two lines are the equal. 
-* - Using Java equals method to check equality of 2 Lengths is preferable.*/
+* - Using Java compareTo method to check equality of 2 Lengths is preferable.*/
 
 import java.util.Scanner;
 
@@ -39,7 +39,9 @@ public class LineComparisonProblem {
 		String stringTwo = Double.toString(lengthTwo);
 		
 		//checking if two lines are equal or not
-		if(stringOne.equals(stringTwo)) {
+		int check = stringOne.compareTo(stringTwo);
+		if(check == 0)
+		{
 			System.out.println("Line 1 and line 2 are equal in length");
 		} else {
 			System.out.println("Line 1 and line 2 are not equal in length");
